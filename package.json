@@ -23,8 +23,9 @@
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:esm": "tsc -p tsconfig.esm.json && npm run rename:esm",
     "build": "npm run build:cjs && npm run build:esm",
-    "clean": "rimraf dist",
+    "clean": "npm run rimraf dist",
     "rename:esm": "./scripts/fix-mjs.sh",
+    "rimraf": "rimraf",
     "prepack": "npm run clean && npm run build",
     "test": "TS_NODE_PROJECT='./tsconfig.esm.json' mocha 'dist/esm/**/*.spec.{mts,mjs}'"
   },
