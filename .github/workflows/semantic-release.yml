@@ -17,4 +17,4 @@ jobs:
       - run: npx semantic-release
         env:
           NPM_TOKEN: ${{secrets.NPM_AUTOMATION_TOKEN}}
-          GITHUB_TOKEN: ${{secrets.GITHUB_REPO_ACCESS_TOKEN}}
+          GITHUB_TOKEN: ${{secrets.REPOS_GITHUB_ACCESS_TOKEN}}

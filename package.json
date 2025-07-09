@@ -1,5 +1,44 @@
 {
+  "name": "ts-cjs-esm",
+  "version": "1.0.0",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.mjs",
+  "types": "./dist/cjs/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/esm/index.d.mts",
+        "default": "./dist/esm/index.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:esm": "tsc -p tsconfig.esm.json && npm run rename:esm",
+    "build": "npm run build:cjs && npm run build:esm",
+    "clean": "rimraf dist",
+    "rename:esm": "./scripts/fix-mjs.sh",
+    "prepack": "npm run clean && npm run build",
+    "test": "TS_NODE_PROJECT='./tsconfig.esm.json' mocha 'dist/esm/**/*.spec.{mts,mjs}'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "description": "",
   "devDependencies": {
-    "typescript": "^5.8.3"
+    "@types/chai": "^5.2.2",
+    "@types/mocha": "^10.0.10",
+    "chai": "^5.2.1",
+    "mocha": "^11.7.1",
+    "rimraf": "^6.0.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.2"
   }
 }
