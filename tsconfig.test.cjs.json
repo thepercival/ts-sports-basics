@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "module": "commonjs",
+    "outDir": "./dist/tests/cjs",
+    "declarationDir": "./dist/tests/cjs/src",
+    "target": "ES2015",
+    "rootDir": "."
+  },
+  "include": ["src/**/*", "tests/cases/**/*"]
+}

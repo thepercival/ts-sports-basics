@@ -1,5 +1,5 @@
 {
-  "name": "ts-cjs-esm",
+  "name": "ts-sports-basics",
   "version": "1.0.0",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.mjs",
@@ -20,13 +20,19 @@
     "dist"
   ],
   "scripts": {
+    "build": "npm run build:cjs && npm run build:esm",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:esm": "tsc -p tsconfig.esm.json && npm run rename:esm",
-    "build": "npm run build:cjs && npm run build:esm",
     "clean": "rimraf dist",
     "rename:esm": "./scripts/fix-mjs.sh",
+    "rename:test:esm": "./scripts/fix-test-mjs.sh",
     "prepack": "npm run build",
-    "test": "TS_NODE_PROJECT='./tsconfig.esm.json' mocha 'dist/esm/**/*.spec.{mts,mjs}'"
+    "test:build": "npm run test:build:cjs && npm run test:build:esm",
+    "test:build:cjs": "tsc -p tsconfig.test.cjs.json",
+    "test:build:esm": "tsc -p tsconfig.test.esm.json && npm run rename:test:esm",
+    "test:esm": "TS_NODE_PROJECT='./tsconfig.test.esm.json' mocha 'dist/tests/esm/**/*.spec.{mts,js}'",
+    "test:cjs": "TS_NODE_PROJECT='./tsconfig.test.cjs.json' mocha 'dist/tests/cjs/**/*.spec.{cts,js}'",
+    "test": "npm run test:esm && npm run test:cjs"
   },
   "keywords": [],
   "author": "",

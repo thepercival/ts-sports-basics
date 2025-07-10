@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "module": "esnext",
+    "outDir": "./dist/tests/esm",
+    "declarationDir": "./dist/tests/esm/src",
+    "target": "esnext",
+    "rootDir": "."
+  },
+  "include": ["src/**/*", "tests/cases/**/*"]
+}
