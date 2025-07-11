@@ -21,19 +21,12 @@
     "dist"
   ],
   "scripts": {
-    "build": "npm run build:cjs && npm run build:esm && npm run rename:cjs",
-    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build": "rm -rf dist && npm run build:esm",
     "build:esm": "tsc -p tsconfig.esm.json",
-    "rename:cjs": "./scripts/rename-commonjs-to-cjs.sh",
-    "rename:test:cjs": "./scripts/rename-commonjs-to-cjs-test.sh",
-    "clean": "rimraf dist",
     "prepack": "npm run build",
-    "test:build": "npm run test:build:cjs && npm run test:build:esm",
-    "test:build:cjs": "tsc -p tsconfig.test.cjs.json && npm run rename:test:cjs",
-    "test:build:esm": "tsc -p tsconfig.test.esm.json",
-    "test:esm": "NODE_OPTIONS='--experimental-specifier-resolution=node --loader=ts-node/esm' mocha 'tests/dist/esm/tests/cases/**/*.spec.{ts,js}'",
-    "test:cjs": "NODE_OPTIONS='--experimental-specifier-resolution=node --loader=ts-node/esm' mocha 'tests/dist/cjs/tests/cases/**/*.spec.{ts,cjs}'",
-    "test": "npm run test:esm && npm run test:cjs"
+    "test:build": "rm -rf tests/dist && tsc -p tsconfig.test.esm.json",
+    "test:esm": "NODE_OPTIONS='--experimental-specifier-resolution=node register('ts-node/esm', pathToFileURL('./'))' mocha 'tests/dist/tests/cases/**/*.spec.{ts,js}'",
+    "test": "npm run test:build && npm run test:esm"
   },
   "keywords": [],
   "author": "",
@@ -44,7 +37,6 @@
     "@types/mocha": "^10.0.10",
     "chai": "^5.2.1",
     "mocha": "^11.7.1",
-    "rimraf": "^6.0.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
   }

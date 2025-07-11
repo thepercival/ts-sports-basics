@@ -10,10 +10,13 @@
           "request": "launch",
           "program": "${workspaceRoot}/node_modules/mocha/bin/_mocha",
           "stopOnEntry": false,
+          "runtimeArgs": [
+            "--experimental-specifier-resolution=node"
+          ],
           "args": [
             "-r",
             "ts-node/esm",
-            "${workspaceRoot}/tests/dist/esm/tests/cases/*.spec.js",
+            "${workspaceRoot}/tests/dist/tests/cases/**/*.spec.js",
             "--no-timeouts"
           ],
           "cwd": "${workspaceRoot}"
