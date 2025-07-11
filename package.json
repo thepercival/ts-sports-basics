@@ -1,14 +1,15 @@
 {
   "name": "ts-sports-basics",
   "version": "1.0.0",
+  "type": "module",
   "main": "./dist/cjs/index.js",
-  "module": "./dist/esm/index.mjs",
+  "module": "./dist/esm/index.js",
   "types": "./dist/cjs/index.d.ts",
   "exports": {
     ".": {
       "import": {
-        "types": "./dist/esm/index.d.mts",
-        "default": "./dist/esm/index.mjs"
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
       },
       "require": {
         "types": "./dist/cjs/index.d.ts",
@@ -20,18 +21,18 @@
     "dist"
   ],
   "scripts": {
-    "build": "npm run build:cjs && npm run build:esm",
+    "build": "npm run build:cjs && npm run build:esm && npm run rename:cjs",
     "build:cjs": "tsc -p tsconfig.cjs.json",
-    "build:esm": "tsc -p tsconfig.esm.json && npm run rename:esm",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "rename:cjs": "./scripts/rename-commonjs-to-cjs.sh",
+    "rename:test:cjs": "./scripts/rename-commonjs-to-cjs-test.sh",
     "clean": "rimraf dist",
-    "rename:esm": "./scripts/fix-mjs.sh",
-    "rename:test:esm": "./scripts/fix-test-mjs.sh",
     "prepack": "npm run build",
     "test:build": "npm run test:build:cjs && npm run test:build:esm",
-    "test:build:cjs": "tsc -p tsconfig.test.cjs.json",
-    "test:build:esm": "tsc -p tsconfig.test.esm.json && npm run rename:test:esm",
-    "test:esm": "TS_NODE_PROJECT='./tsconfig.test.esm.json' mocha 'dist/tests/esm/**/*.spec.{mts,js}'",
-    "test:cjs": "TS_NODE_PROJECT='./tsconfig.test.cjs.json' mocha 'dist/tests/cjs/**/*.spec.{cts,js}'",
+    "test:build:cjs": "tsc -p tsconfig.test.cjs.json && npm run rename:test:cjs",
+    "test:build:esm": "tsc -p tsconfig.test.esm.json",
+    "test:esm": "NODE_OPTIONS='--experimental-specifier-resolution=node --loader=ts-node/esm' mocha 'tests/dist/esm/tests/cases/**/*.spec.{ts,js}'",
+    "test:cjs": "NODE_OPTIONS='--experimental-specifier-resolution=node --loader=ts-node/esm' mocha 'tests/dist/cjs/tests/cases/**/*.spec.{ts,cjs}'",
     "test": "npm run test:esm && npm run test:cjs"
   },
   "keywords": [],
@@ -45,6 +46,6 @@
     "mocha": "^11.7.1",
     "rimraf": "^6.0.1",
     "ts-node": "^10.9.2",
-    "typescript": "^5.7.2"
+    "typescript": "^5.8.3"
   }
 }

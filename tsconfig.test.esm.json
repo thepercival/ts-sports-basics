@@ -2,8 +2,8 @@
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
     "module": "esnext",
-    "outDir": "./dist/tests/esm",
-    "declarationDir": "./dist/tests/esm/src",
+    "outDir": "./tests/dist/esm",
+    "declarationDir": "./dist/tests/esm",
     "target": "esnext",
     "rootDir": "."
   },
