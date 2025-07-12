@@ -11,4 +11,8 @@ describe('poulestructure', () => {
         const pouleStructure = new PouleStructure(3,2);
         chai.expect(pouleStructure.getNrOfPlaces()).to.equal(5);
     });
+        it('biggestPoule should be 3', () => {
+            const pouleStructure = new PouleStructure(3, 2);
+            chai.expect(pouleStructure.getBiggestPoule()).to.equal(3);
+        });
 });
