@@ -1,0 +1,14 @@
+import * as chai from 'chai';
+import { PouleStructure } from '../../../src/pouleStructures/pouleStructure';
+
+describe('poulestructure', () => {
+    it('nrOfPoules should return 2', () => {
+        const pouleStructure = new PouleStructure(3,2);
+        chai.expect(pouleStructure.getNrOfPoules()).to.equal(2);
+    });
+
+    it('nrOfPlaces should return 5', () => {
+        const pouleStructure = new PouleStructure(3,2);
+        chai.expect(pouleStructure.getNrOfPlaces()).to.equal(5);
+    });
+});
