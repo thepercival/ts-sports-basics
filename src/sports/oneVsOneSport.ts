@@ -1,6 +1,6 @@
-import { AgainstSport } from "./againstSport";
+import { AgainstSportAbstract } from "./againstSportAbstract";
 
-export class OneVsOneSport extends AgainstSport{
+export class OneVsOneSport extends AgainstSportAbstract{
     constructor() {
         super(1,1);
     }
