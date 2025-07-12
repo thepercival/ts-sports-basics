@@ -1,9 +1,4 @@
-export class TogetherSport{
+export interface TogetherSport{
 
-    constructor(public readonly nrOfGamePlaces: number|undefined) {
-    }
-
-    getNrOfGamePlaces(): number|undefined {
-        return this.nrOfGamePlaces;
-    }
+    readonly nrOfGamePlaces: number|undefined;
 }
