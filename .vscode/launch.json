@@ -5,21 +5,19 @@
     "version": "0.2.0",
     "configurations": [
         {
-          "name": "mocha tests",
+          "name": "mocha tests js",
           "type": "node",
           "request": "launch",
           "program": "${workspaceRoot}/node_modules/mocha/bin/_mocha",
           "stopOnEntry": false,
-          "runtimeArgs": [
-            "--experimental-specifier-resolution=node"
-          ],
+          "runtimeArgs": ["--experimental-specifier-resolution=node"],
           "args": [
             "-r",
             "ts-node/esm",
-            "${workspaceRoot}/tests/dist/tests/cases/**/*.spec.js",
+            "${workspaceRoot}/tests/dist/tests/cases/**/*.spec.js", // first npm run test:build
             "--no-timeouts"
           ],
           "cwd": "${workspaceRoot}"
-        }
+        },
     ]
 }
