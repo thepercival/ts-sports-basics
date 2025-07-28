@@ -21,23 +21,26 @@
     "dist"
   ],
   "scripts": {
-    "build": "rm -rf dist && npm run build:esm",
-    "build:esm": "tsc -p tsconfig.esm.json",
     "prepack": "npm run build",
-    "test:build": "rm -rf tests/dist && tsc -p tsconfig.test.esm.json",
-    "test:esm": "NODE_OPTIONS='--experimental-specifier-resolution=node' mocha --loader=ts-node/esm 'tests/dist/tests/cases/**/*.spec.{ts,js}'",
-    "test": "npm run test:build && npm run test:esm",
-    "test2": ""
+    "build": "rm -rf dist && tsc -p tsconfig.esm.json",
+    "test": "TS_NODE_PROJECT=tsconfig.test.esm.json NODE_OPTIONS='--experimental-specifier-resolution=node --no-warnings' mocha --loader=ts-node/esm 'tests/cases/**/*.spec.ts'",
+    "coverage": "c8 --check-coverage npm run test",
+    "coverage-nyc": "c8 --check-coverage --experimental-monocart --reporter=v8 --reporter=console-details npm run test"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "description": "",
   "devDependencies": {
+    "@istanbuljs/nyc-config-typescript": "^1.0.2",
     "@types/chai": "^5.2.2",
     "@types/mocha": "^10.0.10",
+    "c8": "^10.1.3",
     "chai": "^5.2.1",
     "mocha": "^11.7.1",
+    "monocart-coverage-reports": "^2.12.6",
+    "nyc": "^17.1.0",
+    "source-map-support": "^0.5.21",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
   }

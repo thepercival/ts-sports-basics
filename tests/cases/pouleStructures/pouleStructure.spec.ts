@@ -1,5 +1,5 @@
 import * as chai from 'chai';
-import { PouleStructure } from '../../../src/pouleStructures/pouleStructure';
+import { PouleStructure } from '../../../src/';
 
 describe('poulestructure', () => {
     it('nrOfPoules should return 2', () => {
@@ -11,8 +11,9 @@ describe('poulestructure', () => {
         const pouleStructure = new PouleStructure(3,2);
         chai.expect(pouleStructure.getNrOfPlaces()).to.equal(5);
     });
-        it('biggestPoule should be 3', () => {
-            const pouleStructure = new PouleStructure(3, 2);
-            chai.expect(pouleStructure.getBiggestPoule()).to.equal(3);
-        });
+        
+    it('biggestPoule should be 3', () => {
+        const pouleStructure = new PouleStructure(3, 2);
+        chai.expect(pouleStructure.getBiggestPoule()).to.equal(3);
+    });
 });

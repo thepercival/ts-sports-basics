@@ -5,7 +5,7 @@
     "outDir": "./tests/dist",
     "declarationDir": "./tests/dist",
     "target": "esnext",
-    "rootDir": "."
+    "rootDir": ".",    
   },
   "include": ["src/**/*", "tests/cases/**/*"]
 }
