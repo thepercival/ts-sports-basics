@@ -24,8 +24,8 @@
     "prepack": "npm run build",
     "build": "rm -rf dist && tsc -p tsconfig.esm.json",
     "test": "TS_NODE_PROJECT=tsconfig.test.esm.json NODE_OPTIONS='--experimental-specifier-resolution=node --no-warnings' mocha --loader=ts-node/esm 'tests/cases/**/*.spec.ts'",
-    "coverage": "c8 --check-coverage npm run test",
-    "coverage-nyc": "c8 --check-coverage --experimental-monocart --reporter=v8 --reporter=console-details npm run test"
+    "coverage-old": "c8 --check-coverage npm run test",
+    "coverage": "c8 --check-coverage --experimental-monocart --reporter=v8 --reporter=console-details npm run test"
   },
   "keywords": [],
   "author": "",
