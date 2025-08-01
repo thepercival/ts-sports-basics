@@ -1,8 +1,6 @@
 
 export enum SeatConfig { 
-    AgainstSeatConfig = 'AgainstSeatConfig',
+    HomeAway = 'HomeAway',
+    NorthSouthEastWest = 'NorthSouthEastWest',
     TogetherSeatConfig = 'TogetherSeatConfig'
 }
-
-
-

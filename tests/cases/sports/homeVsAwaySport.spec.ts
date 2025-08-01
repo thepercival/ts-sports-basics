@@ -1,9 +1,9 @@
 import * as chai from 'chai';
-import { OneVsOneSport } from '../../../src';
+import { HomeVsAwaySport } from '../../../src';
 
 describe('create OneVsOneSport', () => {
     it('should return 2', () => {
-        const sport = new OneVsOneSport();
+        const sport = new HomeVsAwaySport();
         chai.expect(sport.getNrOfGamePlaces()).to.equal(2);
     });
 });
