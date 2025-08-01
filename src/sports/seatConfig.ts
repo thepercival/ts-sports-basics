@@ -1,6 +1,18 @@
 
 export enum SeatConfig { 
-    HomeAway = 'HomeAway',
-    NorthSouthEastWest = 'NorthSouthEastWest',
+    HomeAwaySeatConfig = 'HomeAway',
+    NorthSouthEastWestSeatConfig = 'NorthSouthEastWest',
     TogetherSeatConfig = 'TogetherSeatConfig'
+}
+
+export enum HomeAwaySeat { 
+    HomeSeat = 'HomeSeat',
+    AwaySeat = 'AwaySeat'
+}
+
+export enum NorthSouthEastWestSeat { 
+    NorthSeat = 'NorthSeat',
+    SouthSeat = 'SouthSeat',
+    EastSeat = 'EastSeat',
+    WestSeat = 'WestSeat'
 }
