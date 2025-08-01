@@ -1,6 +1,7 @@
-import { OneVsOneSport } from "../sports/oneVsOneSport";
+import { HomeVsAwaySport } from "../sports/homeVsAwaySport";
 import { TogetherSport } from "../sports/togetherSport";
-import { TwoVsTwoSport } from "../sports/twoVsTwoSport";
+import { NorthSouthVsEastWestSport } from "../sports/northSouthVsEastWestSport";
+import { SelfRefereeScope } from "../selfRefereeScope";
 
 export class PouleStructure extends Array<number> {
 
@@ -38,8 +39,8 @@ export class PouleStructure extends Array<number> {
         return this.getNrOfPoules() > 1;
     }
 
-    public isSelfRefereeSamePouleAvailable(sports: (OneVsOneSport | TwoVsTwoSport | TogetherSport)[]): boolean {
-        return sports.every((sport: OneVsOneSport | TwoVsTwoSport | TogetherSport) => {
+    public isSelfRefereeSamePouleAvailable(sports: (HomeVsAwaySport | NorthSouthVsEastWestSport | TogetherSport)[]): boolean {
+        return sports.every((sport: HomeVsAwaySport | NorthSouthVsEastWestSport | TogetherSport) => {
             const nrOfGamePlaces = sport instanceof TogetherSport ? sport.nrOfGamePlaces : sport.getNrOfGamePlaces();
             return nrOfGamePlaces !== undefined && nrOfGamePlaces < this.getSmallestPoule();
         });
