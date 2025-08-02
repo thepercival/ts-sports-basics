@@ -1,4 +1,5 @@
 export enum SelfRefereeScope {
     SamePoule = "SamePoule",
-    OtherPoules = "OtherPoules"
+    OtherPoulesSameCategory = "OtherPoulesSameCategory",
+    OtherPoulesOtherCategories = "OtherPoulesOtherCategories"
 }
