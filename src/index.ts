@@ -1,5 +1,5 @@
 export * from './sports/seatConfig';
-export * from './sports/seatConfig';
+export * from './gameOrder';
 export * from './sports/homeAwaySeat';
 export * from './sports/northSouthEastWestSeat';
 export * from './sports/homeVsAwaySport';
